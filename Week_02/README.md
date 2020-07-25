@@ -8,8 +8,8 @@
 | --------   | -----:  | :----:|
 |[83.删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)|3|链表循环|
 |[167.两数之和2 - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)|3|双指针夹逼/哈希表|
-|[590. N叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/)|3|迭代/递归|
-|[589. N叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/)|3|迭代/递归|
+|[590. N叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/)|3|迭代|
+|[589. N叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/)|3|迭代|
 |[1021. 删除最外层括号](https://leetcode-cn.com/problems/remove-outermost-parentheses/)|3|数组遍历|
 |[剑指offer40.最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/)|3|堆/数组排序|
 |[剑指offer11.旋转数组的最小数字](https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/)|3|二分法|
@@ -223,4 +223,18 @@ if (!head || !head->next){
         head->next->next = head;                // 当前节点（此刻的head节点）运动到最后一个元素之前一个元素
         head->next = NULL;
         return s; 
+```
+
+#### 查找最近公共祖先递归代码模板
+```cpp
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (root == NULL || root == p || root == q) return root;
+        TreeNode* left = lowestCommonAncestor(root->left,p,q);   // 查看左子树中是否有q或者q
+        TreeNode* right = lowestCommonAncestor(root->right,p,q); // 查看右子树是否有p或者q
+        if (left && right) return root; // 左右子树都存在，则当前根结点为公共祖先
+        return left? left:right;        // 一棵为空一颗非空，证明p和q只在非空的一侧。
+    }
+};
 ```
