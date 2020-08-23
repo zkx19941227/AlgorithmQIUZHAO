@@ -25,7 +25,9 @@
 #### 困难题集合
 |   题号  | 刷题次数   |  技巧点  |
 | --------   | -----:  | :----:|
-|[51.N皇后问题](https://leetcode-cn.com/problems/n-queens/)|3|回溯|
+|[32.最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/)|3|动态规划|
+|[44.通配符匹配](https://leetcode-cn.com/problems/wildcard-matching/)|3|二维数组动态规划|
+|[115.不同的子序列](https://leetcode-cn.com/problems/distinct-subsequences/)|3|动态规划|
 
 ### 初级排序-O（N^2）
 1. 选择排序-每次找到最小值，然后放到待排序数组的起始位置
